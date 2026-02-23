@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Josh</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="side-text">About Josh</div>
+
+  <header class="site-header">
+    <div class="container nav">
+      <a href="index.html" class="brand">Josh Software.</a>
+      <div class="nav-right">
+        <nav class="menu">
+          <a href="index.html">Top</a>
+          <a href="about.html">About</a>
+          <a href="#experience">Experience</a>
+          <a href="#strengths">Strengths</a>
+          <a href="#next">Next Step</a>
+        </nav>
+        <div class="lang-switch" aria-label="Language switcher">
+          <a class="active" href="about.html">EN</a>
+          <span class="divider">/</span>
+          <a href="about-zh.html">中文</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="about-main" id="top">
+    <section class="container about-hero">
+      <div>
+        <p class="about-kicker">About Me</p>
+        <h1 class="about-title">Hi, I'm Josh.</h1>
+        <p class="about-lead">
+          I have almost seven years of software engineering experience, with the past four years focused on backend development.
+          Go is my main language, and I currently serve as a backend lead in a fintech company.
+          I led a Visa debit card project for two years, building the backend from zero to one and later owning the core transaction domain.
+        </p>
+      </div>
+      <div class="about-photo-wrap">
+        <img class="about-photo" src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1200&q=80" alt="Josh leading engineering discussion" />
+      </div>
+    </section>
+
+    <section class="container about-section" id="experience">
+      <h2 class="section-head">EXPERIENCE</h2>
+      <p class="section-note">
+        My journey spans fintech backend systems and hardware startup execution.
+        In both contexts, I drove cross-functional alignment and delivered complete products from concept to launch.
+        These two zero-to-one experiences shaped my ability to adapt and execute under high uncertainty.
+      </p>
+
+      <div class="timeline">
+        <article class="timeline-item">
+          <h3 class="timeline-role">Backend Lead, Visa Debit Card Project</h3>
+          <p class="timeline-meta">Fintech | 2+ Years</p>
+          <p class="timeline-text">
+            I designed and implemented the backend architecture from scratch. After the team expanded, I focused on the core transaction logic,
+            while also handling onboarding, code reviews, development standards, and cross-functional coordination with merchants, PM, finance,
+            and operations teams. To satisfy strict Visa transaction timing requirements, we currently run on a single-node architecture.
+            Before this phase, I also had two years of microservices development experience.
+          </p>
+        </article>
+
+        <article class="timeline-item">
+          <h3 class="timeline-role">Team Lead, Bluetooth Gaming Device Startup</h3>
+          <p class="timeline-meta">Startup | First Career Stage</p>
+          <p class="timeline-text">
+            Before moving fully into backend development, I led a startup project to build a Bluetooth gaming device.
+            I coordinated design, mechanical, electronics, firmware, software, and manufacturer collaboration,
+            and personally took ownership of firmware development in a highly complex environment.
+          </p>
+        </article>
+      </div>
+
+      <div class="stats-grid">
+        <article class="stat-card"><strong>7Y</strong><span>Software Development</span></article>
+        <article class="stat-card"><strong>4Y</strong><span>Backend Focus</span></article>
+        <article class="stat-card"><strong>2</strong><span>Zero-to-One Products</span></article>
+        <article class="stat-card"><strong>Go</strong><span>Primary Language</span></article>
+      </div>
+    </section>
+
+    <section class="container about-section" id="strengths">
+      <h2 class="section-head">STRENGTHS</h2>
+      <div class="strength-grid">
+        <article class="strength-card">
+          <h4>Relational Databases & ACID</h4>
+          <p>
+            I am strong in relational database design and ACID principles, which are essential in financial systems where data correctness is non-negotiable.
+          </p>
+        </article>
+
+        <article class="strength-card">
+          <h4>Correctness-Driven Business Logic</h4>
+          <p>
+            In my current team, I own and implement critical transaction logic with strict quality standards, with correctness and consistency as top priorities.
+          </p>
+        </article>
+
+        <article class="strength-card">
+          <h4>Go & Team Enablement</h4>
+          <p>
+            I am deeply familiar with Go and practical backend patterns. I also contribute through code reviews, mentoring, and engineering process definition.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section class="container about-section" id="next">
+      <h2 class="section-head">WHY NEXT</h2>
+      <div class="motivation">
+        <article class="motivation-copy">
+          <h4>Looking for Greater Growth and Scale</h4>
+          <p>
+            My current system has become stable after two years. Most daily work now centers on repetitive business logic,
+            and traffic scale is limited. I am looking for a more challenging environment where I can keep growing through
+            higher scale, deeper architecture challenges, and broader product impact.
+          </p>
+        </article>
+        <img class="motivation-photo" src="https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?auto=format&fit=crop&w=1200&q=80" alt="Engineering system dashboard" />
+      </div>
+    </section>
+  </main>
+</body>
+</html>
