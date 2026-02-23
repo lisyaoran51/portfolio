@@ -167,26 +167,28 @@
       box-shadow: 0 16px 40px rgba(0, 0, 0, 0.18);
     }
 
-    .circle-text {
-      position: absolute;
-      inset: -80px;
-      border-radius: 50%;
-      border: 1px dashed transparent;
-      animation: spin 24s linear infinite;
-      pointer-events: none;
-      z-index: 2;
-    }
+.circle-text {
+  position: absolute;
+  inset: -80px;
+  border-radius: 50%;
+  border: 1px dashed transparent;
+  animation: spin 300s linear infinite;
+  pointer-events: none;
+  z-index: 2;
+}
 
-    .circle-text span {
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      transform-origin: 0 0;
-      font-size: 13px;
-      font-weight: 600;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-    }
+.circle-text span {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform-origin: 0 0;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #fff;
+  opacity: 0.5;
+}
 
     @keyframes spin {
       from { transform: rotate(0deg); }

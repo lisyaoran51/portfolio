@@ -17,9 +17,14 @@
           <a href="index.html">Top</a>
           <a href="about.html">About</a>
           <a href="#overview">Overview</a>
-          <a href="#build">Build Process</a>
+          <a href="#build">Architecture</a>
           <a href="#impact">Impact</a>
         </nav>
+        <div class="lang-switch" aria-label="Language switcher">
+          <a class="active" href="bluetooth-game-device.html">EN</a>
+          <span class="divider">/</span>
+          <a href="bluetooth-game-device-zh.html">中文</a>
+        </div>
       </div>
     </div>
   </header>
@@ -30,59 +35,75 @@
         <p class="project-tag">Project 02</p>
         <h1 class="project-title">Bluetooth Music Game Device (2019)</h1>
         <p class="project-subtitle">
-          A game framework for Bluetooth game device. Since the limit of CPU and memory is very low on this device, I developed a game framework that can be used to develop games for low-end devices. It is based on the C++ programming language and uses the BASS audio library.
+          I built a modular game framework for a Bluetooth music game device. Because the hardware had tight CPU and memory limits,
+          the framework was designed to keep runtime overhead low while maintaining clear layering and maintainability.
+          The stack is built with C++ and the BASS audio library.
         </p>
       </div>
       <img
         class="project-hero-image"
         src="game framework.jpg"
-        alt="Gaming controller prototype and laptop"
-        />
-        <!-- src="https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=1600&q=80" -->
+        alt="Bluetooth music game framework diagram"
+      />
     </section>
 
     <section class="container project-content" id="build">
       <article class="project-block">
         <h2>Components</h2>
         <p>
-          最底層為 Firmware / Library，包含 Display Driver、Keyboard Driver、藍牙（BLUEZ）以及音訊系統（BASS），直接與硬體資源互動。其上為 Framework 層，負責系統核心能力與裝置抽象，包含 IO Manager、Display Controller、Keyboard Controller、BLE Controller 與 Audio Manager，並透過 Request / Message 機制進行模組間通訊，搭配 Thread 與 Timing 管理系統運行節奏。
-</p><p>
-再往上是 Music Game 層，涵蓋 Scene、UI、Script 與 Game Event，實現遊戲邏輯與互動體驗；最上層為 Ruleset 層，可擴充不同遊戲規則模組（Ruleset 1、2、3…），讓同一套底層架構能支援多種玩法。
-</p><p>
-整體設計強調模組化、可擴充性與層級清晰分離，使軟體邏輯與硬體實作有效解耦，便於功能演進與多規則擴展，同時維持系統穩定與可維護性。
+          The lowest layer is Firmware/Library, including Display Driver, Keyboard Driver, Bluetooth (BLUEZ), and audio (BASS),
+          which directly interact with hardware resources.
+        </p>
+        <p>
+          On top of that, the Framework layer provides device abstraction and core services:
+          IO Manager, Display Controller, Keyboard Controller, BLE Controller, and Audio Manager.
+          Modules communicate through a Request/Message mechanism, with thread and timing control coordinating the runtime cycle.
+        </p>
+        <p>
+          The upper layer is the Music Game domain, including Scene, UI, Script, and Game Event.
+          A pluggable Ruleset layer sits above it so different gameplay rules can run on the same core architecture.
+          This design keeps the system modular, extensible, and maintainable.
         </p>
         <img
           class="project-large-image"
           src="frame1.jpg"
-          alt="Engineers collaborating on hardware and software"
+          alt="System component architecture"
         />
       </article>
 
       <article class="project-block" id="impact">
-        <h2>Hierachy Structure</h2>
+        <h2>Hierarchy Structure</h2>
         <p>
-          當玩家選擇歌曲後，系統交由 Player 載入對應規則與模式，並由 Time Controller 控制整體節奏與時間軸；核心玩法邏輯定義於 Ruleset，包含遊戲流程與計分規則；Playfield 負責畫面呈現，而最底層的 Event Master 實際驅動整場遊戲執行。
-</p><p>
-此外，左側的 Dependency Cache 提供共用資源存取機制（如設定、音訊、IO 等），讓各元件能在不直接耦合的情況下取得必要資源。整體設計呈現明確的階層控制流與責任分離，使遊戲流程可維護、可擴充，也便於未來增加新玩法或模組。
+          After the player selects a song, the Player loads the required mode and ruleset.
+          A Time Controller manages timeline and rhythm synchronization, while Ruleset defines gameplay logic and scoring.
+          Playfield handles rendering, and Event Master drives the game loop execution.
+        </p>
+        <p>
+          A Dependency Cache provides shared resources such as settings, audio, and IO references,
+          so modules can access common services without tight coupling.
+          The result is a clear control flow and responsibility split that makes the gameplay pipeline easier to maintain and extend.
         </p>
         <img
           class="project-large-image"
           src="frame2.jpg"
-          alt="Embedded development and electronic board testing"
+          alt="Hierarchy and runtime flow diagram"
         />
       </article>
 
       <article class="project-block">
         <h2>Threads</h2>
         <p>
-          根據不同的更新率的要求，最底層的 Thread 可以分為 Update Thread、Render Thread、Input Thread 與 Audio Thread，分別控制更新、渲染、輸入與音訊系統的執行。
-</p><p>
-並透過更新頻率控制器，使每個thread以指定的頻率更新。
+          To meet different update-rate requirements, the runtime is split into Update, Render, Input, and Audio threads.
+          Each thread controls its own subsystem and avoids blocking the others.
+        </p>
+        <p>
+          A frequency controller regulates each thread at its target rate, keeping interaction, rendering,
+          and audio stable under constrained device performance.
         </p>
         <img
           class="project-large-image"
           src="frame3.jpg"
-          alt="Embedded development and electronic board testing"
+          alt="Thread design and timing control diagram"
         />
       </article>
     </section>
